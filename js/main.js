@@ -91,7 +91,7 @@ class TypeWriter {
 
         this.txtElement.textContent = this.txt;
 
-        let typeSpeed = 50;
+        let typeSpeed = 60;
 
         if (this.isDeleting) {
             typeSpeed /= 1;
@@ -117,11 +117,12 @@ function initTypeWriter() {
         'Front-End Web Developer',
         'Programmer',
         'Web Designer',
+        'Editor',
         'Poet',
         'Teacher'
 
     ];
-    const wait = 500;
+    const wait = 700;
     new TypeWriter(txtElement, words, wait);
 }
 
