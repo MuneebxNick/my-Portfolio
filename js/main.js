@@ -7,18 +7,21 @@ const hamburger = document.querySelector('.hamburger');
 const navLinksContainer = document.querySelector('.nav-links');
 const body = document.body;
 const navLinksItems = document.querySelectorAll('.nav-links a');
+const profileImage = document.querySelector('.about-image img');
 
 // Theme Toggle
 function initTheme() {
     // Always set the light theme by default
     document.documentElement.setAttribute('data-theme', 'light');
     themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Show moon icon for light theme
+    profileImage.src = './images/profile1.jpg.png';
 
     // Check for saved theme only after setting default, to allow user override
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
         themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Show sun icon for dark theme
+        profileImage.src = './images/profile.jpg.png';
     }
 }
 
@@ -50,6 +53,11 @@ themeToggle.addEventListener('click', () => {
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme); // Save the user's preference
     updateThemeIcon(newTheme); // Update the icon to match the new theme
+    if (newTheme === 'light') {
+        profileImage.src = './images/profile1.jpg.png';
+    } else {
+        profileImage.src = './images/profile.jpg.png';
+    }
 });
 
 // Hamburger Menu Functionality
